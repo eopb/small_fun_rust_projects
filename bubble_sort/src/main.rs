@@ -7,8 +7,8 @@ fn main() {
         bubble_sort(
             &mut {
                 let mut v = Vec::new();
-                for _ in 0..5000 {
-                    v.push(rand::thread_rng().gen_range(1, 1001));
+                for _ in 0..8000 {
+                    v.push(rand::thread_rng().gen_range(1, 5001));
                 }
                 println!("made");
                 v
@@ -22,8 +22,8 @@ fn bubble_sort<T, F>(to_sort: &mut [T], f: F) -> &[T]
 where
     F: Fn(&T, &T) -> bool,
 {
-    let mut number_of_reads = 0;
-    let mut number_of_swaps = 0;
+    let mut number_of_reads = 0u128;
+    let mut number_of_swaps = 0u128;
     let mut sorted = to_sort;
     loop {
         match &sorted.iter().enumerate().find(|(index, value)| {
