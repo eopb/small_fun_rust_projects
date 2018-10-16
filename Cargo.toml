@@ -4,5 +4,6 @@ members = [
     "primes",
     "nvec",
     "binlist",
+    "bubble_sort",
 ]
 
