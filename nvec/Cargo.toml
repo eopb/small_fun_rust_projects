@@ -1,0 +1,11 @@
+[package]
+name = "nvec"
+version = "0.1.0"
+authors = ["Ethan Brierley <ethanboxx@gmail.com>"]
+edition = "2018"
+license = "MIT/Apache-2.0"
+description = """
+nvec
+"""
+
+[dependencies]
