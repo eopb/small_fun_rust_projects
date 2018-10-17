@@ -25,7 +25,7 @@ where
 
 fn thing_to_sort() -> Vec<u64> {
     let mut v = Vec::new();
-    for _ in 0..1000 {
+    for _ in 0..8000 {
         v.push(rand::thread_rng().gen_range(1, 5001));
     }
     v
