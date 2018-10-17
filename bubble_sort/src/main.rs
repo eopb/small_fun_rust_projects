@@ -1,5 +1,4 @@
 use rand::Rng;
-use std::iter;
 
 fn main() {
     let mut thing_to_sort = thing_to_sort();
@@ -17,7 +16,7 @@ fn bubble_sort<T, F: Fn(&T, &T) -> bool>(to_sort: &mut [T], is_sorted: F) {
 
 // Makes a list of random numbers
 fn thing_to_sort() -> Vec<u64> {
-    iter::repeat_with(|| rand::thread_rng().gen_range(1, 5001))
+    std::iter::repeat_with(|| rand::thread_rng().gen_range(1, 5001))
         .take(1000)
         .collect()
 }
