@@ -3,9 +3,7 @@ use rand::Rng;
 fn main() {
     println!("{:?}", {
         let mut thing_to_sort = thing_to_sort();
-        bubble_sort(&mut thing_to_sort, |before_value, after_value| {
-            before_value <= after_value
-        });
+        bubble_sort(&mut thing_to_sort, |before, after| before <= after);
         thing_to_sort
     })
 }
