@@ -1,5 +1,5 @@
 fn main() {
-    for x in (1..100).map(|val| {
+    let fizzbuzz = (1..).map(|val| {
         if val % 3 == 0 {
             if val % 5 == 0 {
                 "fizzbuzz".to_string()
@@ -11,7 +11,8 @@ fn main() {
         } else {
             val.to_string()
         }
-    }) {
+    });
+    for x in fizzbuzz.take(25) {
         println!("{}", x)
     }
 }
