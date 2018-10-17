@@ -24,18 +24,17 @@ where
 {
     let mut number_of_reads = 0u128;
     let mut number_of_swaps = 0u128;
-    let mut sorted = to_sort;
     loop {
-        match &sorted.iter().enumerate().find(|(index, value)| {
+        match &to_sort.iter().enumerate().find(|(index, value)| {
             number_of_reads += 1;
-            (if *index != &sorted.len() - 1 {
-                (f(value, &sorted[index + 1]))
+            (if *index != &to_sort.len() - 1 {
+                (f(value, &to_sort[index + 1]))
             } else {
                 false
             })
         }) {
             Some(value) => {
-                sorted.swap(value.0, value.0 + 1);
+                to_sort.swap(value.0, value.0 + 1);
                 number_of_swaps += 1;
             }
             None => {
@@ -47,7 +46,7 @@ where
         "number of reads :{}, Number of swaps :{}",
         number_of_reads, number_of_swaps
     );
-    sorted
+    to_sort
 }
 // if index == sorted.len() - 1 {
 //     continue;
