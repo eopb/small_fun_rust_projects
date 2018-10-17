@@ -23,11 +23,11 @@ where
     F: Fn(&T, &T) -> bool,
 {
     while let Some(value) = &to_sort.iter().enumerate().find(|(index, value)| {
-        (if *index != &to_sort.len() - 1 {
-            (f(value, &to_sort[index + 1]))
+        if *index != &to_sort.len() - 1 {
+            f(value, &to_sort[index + 1])
         } else {
             false
-        })
+        }
     }) {
         to_sort.swap(value.0, value.0 + 1);
     }
