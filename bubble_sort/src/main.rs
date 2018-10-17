@@ -1,22 +1,21 @@
 use rand::Rng;
 
 fn main() {
-    println!(
-        "{:?}",
-        bubble_sort(
-            &mut thing_to_sort(),
-            |before_value, after_value| before_value <= after_value
-        )
-    )
+    println!("{:?}", {
+        let mut thing_to_sort = thing_to_sort();
+        bubble_sort(&mut thing_to_sort, |before_value, after_value| {
+            before_value <= after_value
+        });
+        thing_to_sort
+    })
 }
 
-fn bubble_sort<T, F: Fn(&T, &T) -> bool>(to_sort: &mut [T], is_sorted: F) -> &[T] {
+fn bubble_sort<T, F: Fn(&T, &T) -> bool>(to_sort: &mut [T], is_sorted: F) {
     while let Some(value) = &to_sort.iter().enumerate().find(|(index, value)| {
         *index != &to_sort.len() - 1 && !is_sorted(value, &to_sort[index + 1])
     }) {
         to_sort.swap(value.0, value.0 + 1)
     }
-    to_sort
 }
 
 fn thing_to_sort() -> Vec<u64> {
