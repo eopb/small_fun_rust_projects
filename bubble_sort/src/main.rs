@@ -1,11 +1,9 @@
 use rand::Rng;
 
 fn main() {
-    println!("{:?}", {
-        let mut thing_to_sort = thing_to_sort();
-        bubble_sort(&mut thing_to_sort, |before, after| before <= after);
-        thing_to_sort
-    })
+    let mut thing_to_sort = thing_to_sort();
+    bubble_sort(&mut thing_to_sort, |before, after| before <= after);
+    println!("{:?}", thing_to_sort)
 }
 
 fn bubble_sort<T, F: Fn(&T, &T) -> bool>(to_sort: &mut [T], is_sorted: F) {
