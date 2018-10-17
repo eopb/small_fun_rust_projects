@@ -7,10 +7,10 @@ fn main() {
 }
 
 fn bubble_sort<T, F: Fn(&T, &T) -> bool>(to_sort: &mut [T], is_sorted: F) {
-    while let Some(value) = &to_sort.iter().enumerate().find(|(index, value)| {
+    while let Some((index, _)) = &to_sort.iter().enumerate().find(|(index, value)| {
         *index != &to_sort.len() - 1 && !is_sorted(value, &to_sort[index + 1])
     }) {
-        to_sort.swap(value.0, value.0 + 1)
+        to_sort.swap(*index, index + 1)
     }
 }
 
