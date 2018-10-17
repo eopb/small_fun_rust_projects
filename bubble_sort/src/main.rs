@@ -4,17 +4,8 @@ use rand::Rng;
 fn main() {
     println!(
         "{:?}",
-        bubble_sort(
-            &mut {
-                let mut v = Vec::new();
-                for _ in 0..8000 {
-                    v.push(rand::thread_rng().gen_range(1, 5001));
-                }
-                println!("made");
-                v
-            },
-            |big_value, small_value| big_value > small_value
-        )
+        bubble_sort(&mut thing_to_sort(), |big_value, small_value| big_value
+            > small_value)
     )
 }
 
@@ -32,4 +23,13 @@ where
         to_sort.swap(value.0, value.0 + 1);
     }
     to_sort
+}
+
+fn thing_to_sort() -> Vec<u64> {
+    let mut v = Vec::new();
+    for _ in 0..8000 {
+        v.push(rand::thread_rng().gen_range(1, 5001));
+    }
+    println!("made");
+    v
 }
