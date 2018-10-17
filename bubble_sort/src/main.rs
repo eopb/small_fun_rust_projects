@@ -4,8 +4,10 @@ use rand::Rng;
 fn main() {
     println!(
         "{:?}",
-        bubble_sort(&mut thing_to_sort(), |big_value, small_value| big_value
-            > small_value)
+        bubble_sort(
+            &mut thing_to_sort(),
+            |before_value, after_value| before_value < after_value
+        )
     )
 }
 
@@ -15,7 +17,7 @@ where
 {
     while let Some(value) = &to_sort.iter().enumerate().find(|(index, value)| {
         if *index != &to_sort.len() - 1 {
-            f(value, &to_sort[index + 1])
+            f(&to_sort[index + 1], value)
         } else {
             false
         }
