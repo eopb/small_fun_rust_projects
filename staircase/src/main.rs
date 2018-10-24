@@ -1,6 +1,6 @@
 fn main() {
-    for x in staircase(30) {
-        println!("{}", x);
+    for layer in staircase(5) {
+        println!("{}", layer);
     }
 }
 
