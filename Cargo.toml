@@ -7,5 +7,6 @@ members = [
     "bubble_sort",
     "fizzbuzz",
     "fibonacci",
+    "staircase",
 ]
 
