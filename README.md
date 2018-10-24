@@ -62,8 +62,7 @@ The program then prints out the first 187 values. Value 188 is larger than 128bi
 
 ```rust
 fn main() {
-    let mut cache = HashMap::new();
-    let fibonacci = (0..).map(|n| nthfib(n, &mut cache));
+    let fibonacci = (0..).map(|n| nthfib(n, &mut HashMap::new()));
     for x in fibonacci.take(187) {
         println!("{}", x)
     }

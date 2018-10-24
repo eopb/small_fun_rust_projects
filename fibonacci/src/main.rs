@@ -1,8 +1,7 @@
 use std::collections::HashMap;
 
 fn main() {
-    let mut cache = HashMap::new();
-    let fibonacci = (0..).map(|n| nthfib(n, &mut cache));
+    let fibonacci = (0..).map(|n| nthfib(n, &mut HashMap::new()));
     for x in fibonacci.take(187) {
         println!("{}", x)
     }
