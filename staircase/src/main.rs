@@ -1,20 +1,17 @@
 fn main() {
-    for layer in staircase(5) {
-        println!("{}", layer);
-    }
+    println!("{}", staircase(5));
 }
 
-fn staircase(height: u32) -> Vec<String> {
-    let mut vec = Vec::new();
+fn staircase(height: u32) -> String {
+    let mut string = String::new();
     for width in 1..=height {
-        let mut string = String::new();
         for _ in 1..=height - width {
             string.push_str(" ")
         }
         for _ in 0..width {
             string.push_str("#")
         }
-        vec.push(string);
+        string.push_str("\n")
     }
-    vec
+    string
 }
