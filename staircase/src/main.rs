@@ -15,7 +15,6 @@ fn staircase(height: u32) -> Vec<String> {
         for _ in 0..width {
             string.push_str("#")
         }
-
         vec.push(string);
     }
     vec
