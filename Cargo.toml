@@ -6,5 +6,6 @@ members = [
     "binlist",
     "bubble_sort",
     "fizzbuzz",
+    "fibonacci",
 ]
 
