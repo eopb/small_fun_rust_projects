@@ -18,7 +18,7 @@ fn bubble_sort<T, F: Fn(&T, &T) -> bool>(to_sort: &mut [T], is_sorted: F) {
 
 ## FizzBuzz
 
-This program stores the all infinite values in [fizzbuzz](https://en.wikipedia.org/wiki/Fizz_buzz) in a lazily evaluated way and then prints out the first 25 values.
+This program stores all infinite values in [fizzbuzz](https://en.wikipedia.org/wiki/Fizz_buzz) in a lazily evaluated way and then prints out the first 25 values.
 
 ```rust
 fn main() {
