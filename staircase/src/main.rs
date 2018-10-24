@@ -1,5 +1,5 @@
 fn main() {
-    println!("{}", staircase(5));
+    println!("{}", staircase(30));
 }
 
 fn staircase(height: usize) -> String {
