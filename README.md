@@ -84,3 +84,32 @@ fn nthfib(n: u128, mut cache: &mut HashMap<u128, u128>) -> u128 {
     }
 }
 ```
+
+## Staircase
+
+This program prints out a staircase.
+This
+```rust
+fn main() {
+    println!("{}", staircase(5));
+}
+
+fn staircase(height: usize) -> String {
+    let mut string = String::new();
+    for width in 1..=height {
+        string.push_str(&" ".repeat(height - width));
+        string.push_str(&"#".repeat(width));
+        string.push_str("\n")
+    }
+    string
+}
+
+```
+prints out this
+```
+    #
+   ##
+  ###
+ ####
+#####
+```
