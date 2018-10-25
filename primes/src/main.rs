@@ -3,7 +3,7 @@ extern crate rayon;
 use rayon::prelude::*;
 
 fn main() {
-    print_prime_range(1000000, 1500000)
+    print_all_primes()
 }
 
 fn primes() -> impl Iterator<Item = u64> {
