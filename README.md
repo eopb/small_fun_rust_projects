@@ -34,26 +34,6 @@ fn main() {
 }
 ```
 
-## Nvec
-
-This has got to be one of the most flexible collection types.
-
-```rust
-#[derive(Clone, Debug)]
-struct Nvec<T>(Vec<NOpt<T>>);
-
-#[derive(Clone, Debug)]
-enum NOpt<T> {
-    Vect(Vec<NOpt<T>>),
-    Value(T),
-}
-
-fn main() {
-    let value = Nvec(vec![NOpt::Vect(vec![NOpt::Value(5); 3]); 3]);
-    println!("{:#?}", value);
-}
-```
-
 ## Fibonacci
 
 This program stores all infinite values in the [Fibonacci sequence](https://en.wikipedia.org/wiki/Fibonacci_number) in a lazily evaluated way that caches values that have already been calculated.
@@ -112,4 +92,24 @@ prints out this
   ###
  ####
 #####
+```
+
+## Nvec
+
+This has got to be one of the most flexible collection types.
+
+```rust
+#[derive(Clone, Debug)]
+struct Nvec<T>(Vec<NOpt<T>>);
+
+#[derive(Clone, Debug)]
+enum NOpt<T> {
+    Vect(Vec<NOpt<T>>),
+    Value(T),
+}
+
+fn main() {
+    let value = Nvec(vec![NOpt::Vect(vec![NOpt::Value(5); 3]); 3]);
+    println!("{:#?}", value);
+}
 ```
