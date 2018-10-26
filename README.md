@@ -34,6 +34,26 @@ fn main() {
 }
 ```
 
+## Primes
+
+This program stores all prime numbers in a lazily evaluated way, finds them in parallel and then prints them out. I know this is not the fastest way of doing this.
+
+```rust
+fn main() {
+    for x in primes() {
+        println!("{}", x);
+    }
+}
+
+fn primes() -> impl Iterator<Item = u64> {
+    (2..).filter(|x| {
+        (2..(((*x as f64).sqrt() as u64) + 1))
+            .into_par_iter()
+            .all(|y| x % y != 0)
+    })
+}
+```
+
 ## Fibonacci
 
 This program stores all infinite values in the [Fibonacci sequence](https://en.wikipedia.org/wiki/Fibonacci_number) in a lazily evaluated way that caches values that have already been calculated.
