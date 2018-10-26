@@ -45,3 +45,31 @@ fn diago<F: Fn(u32, u32) -> ()>(to_run: F) {
         }
     }
 }
+fn diagonalize<I1, I2>(it1: I1, it2: I2) -> impl Iterator<Item = (I1::Item, I2::Item)>
+where
+    I1: IntoIterator,
+    <I1 as IntoIterator>::Item: Clone,
+    I2: IntoIterator,
+    <I2 as IntoIterator>::IntoIter: Clone,
+{
+    let it1 = it1.into_iter();
+    let mut rows = Vec::new();
+    let it2 = it2.into_iter();
+
+    it1.flat_map(move |x| {
+        rows.push(it2.clone().map(move |y| (x.clone(), y)));
+        let v: Vec<_> = rows.iter_mut().flat_map(|it| it.next()).collect();
+        v
+    })
+}
+
+fn main2() {
+    let mut l = 0;
+    for (x, y) in diagonalize(0.., 0..) {
+        println!("{}, {}", x, y);
+        l += 1;
+        if l > 10 {
+            return;
+        }
+    }
+}
